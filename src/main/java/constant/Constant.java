@@ -1,7 +1,7 @@
 package constant;
 
 public class Constant {
-    // Constants are company info paragraphs retrieved from https://findwise.com/en/findwise-more-than-enterprise-search
+    //Constants are company info paragraphs retrieved from https://findwise.com/en/findwise-more-than-enterprise-search
 //    public static final String Doc1 = "Findwise adds business value to organisations where information application is a priority";
 //    public static final String Doc2 = "We help companies find and information analyse and act on information";
 //    public static final String Doc3 = "We are global experts in solving information challenges";
