@@ -3,6 +3,7 @@ package strategy;
 import constant.Constant;
 import model.Document;
 import service.CalculatorAlgorithm;
+import util.StringOperations;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
