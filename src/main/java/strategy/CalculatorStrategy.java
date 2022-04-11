@@ -8,6 +8,8 @@ import util.StringOperations;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class CalculatorStrategy implements CalculatorAlgorithm {
@@ -40,8 +42,10 @@ public class CalculatorStrategy implements CalculatorAlgorithm {
                     TreeMap<String, Integer> wordCount = new TreeMap<>();
                     String[] words = doc.getText().toLowerCase().split(" ");
                     for (String term : words) {
+                        //cleaning up the term ie removing .,:"
                         term = StringOperations.cleanseInput(term);
-                        if (StringOperations.isDigit((term))) {
+                        //ignoring numbers
+                        if (StringOperations.isDigit(term)) {
                             continue;
                         }
                         if (term.length() == 0) {
@@ -111,14 +115,32 @@ public class CalculatorStrategy implements CalculatorAlgorithm {
     @Override
     public List<Document> calculateTFIDF(HashMap<Document, Double> docListTFMap, double idfScore) {
 
-        List<Document> documentList =
-                docListTFMap.entrySet()
-                        .stream()
-                        .filter(entry -> !Double.isNaN(entry.getValue()))
-                        .peek(entry -> entry.setValue(entry.getValue() * idfScore))
-                        .sorted(Map.Entry.comparingByValue())
-                        .map(Map.Entry::getKey)
-                        .collect(Collectors.toList());
+        HashMap<Document, Double> documentDoubleHashMap = new HashMap<>();
+        docListTFMap.forEach((doc, scoreValue) -> {
+            if (!Double.isNaN(scoreValue)) {
+                documentDoubleHashMap.put(doc, scoreValue * idfScore);
+            }
+        });
+        List<Document> documentList = documentDoubleHashMap.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+        Collections.reverse(documentList);
         return documentList;
+
+//        List<Document> documentList=
+//                 docListTFMap.entrySet()
+//                        .stream()
+//                        .filter(entry -> !Double.isNaN(entry.getValue()))
+//                        .peek(entry -> entry.setValue(entry.getValue() * idfScore))
+//                        .sorted(Map.Entry.comparingByValue())
+//                        .map(Map.Entry::getKey)
+//                        .collect(Collectors.toList());
+//
+
     }
+
+
+
 }
