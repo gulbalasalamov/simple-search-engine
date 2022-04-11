@@ -20,19 +20,15 @@ The search engine should:
 
 The following documents are indexed: 
 
-> Document1: Our company adds business value to organisations where information application is a priority
+> Document1: the brown fox jumped over the brown dog
 
-> Document2: We help companies find and information analyse and act on information
+> Document2: the lazy brown dog sat in the corner
 
-> Document3: We are global experts in solving information challenges
+> Document3: the red fox bit the lazy dog
 
-A search for "information" should now return the following documents from list:
+A search for "information" should now return the following documents from list: 1, 2 
 
-3, 2, 1, 
-
-A search for "challenges" should now return the following documents from list:
-
-3, 
+A search for "challenges" should now return the following documents from list: 3, 1
      
 
 ## Design and Architecture
