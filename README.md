@@ -26,9 +26,9 @@ The following documents are indexed:
 
 > Document3: the red fox bit the lazy dog
 
-A search for "information" should now return the following documents from list: 1, 2 
+A search for "brown" should now return the following documents from list: 1, 2 
 
-A search for "challenges" should now return the following documents from list: 3, 1
+A search for "fox" should now return the following documents from list: 3, 1
      
 
 ## Design and Architecture
