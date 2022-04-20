@@ -12,7 +12,7 @@ import java.util.TreeMap;
 public class SearchEngineManager {
     Context context;
     List<Document> documents;
-    HashMap<Document, TreeMap<String, Integer>> wordsFromDocuments;
+    //HashMap<Document, TreeMap<String, Integer>> wordsFromDocuments;
     HashMap<Document, Double> tfScoreMap;
     double idfScore;
 
@@ -30,9 +30,9 @@ public class SearchEngineManager {
         //return documents;
     }
 
-    public void getWordsFromDocList() {
-        wordsFromDocuments = context.getWordsFromDocList(documents);
-    }
+//    public void getWordsFromDocList() {
+//        wordsFromDocuments = context.getWordsFromDocList(documents);
+//    }
 
     public void calculateTFScore(String term) {
         tfScoreMap = context.calculateTFScore(documents, term);

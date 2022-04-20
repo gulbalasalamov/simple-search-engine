@@ -75,6 +75,13 @@ public class CalculatorStrategy implements CalculatorAlgorithm {
      */
     @Override
     public HashMap<Document, Double> calculateTFScore(List<Document> documents, String term) {
+        //TODO: Refactor
+        /**
+         * Below implementation breaking SRP rule
+         * If you can call a method from another either statically or by directly instantiating a class to which you've moved the logic,
+         * it doesn't help the decoupling aspect of the problem
+         */
+
         HashMap<Document, TreeMap<String, Integer>> words = getWordsFromDocList(documents);
         HashMap<Document, Double> tfScoreMap = new HashMap<>();
         words.forEach((doc, treeMap) -> {

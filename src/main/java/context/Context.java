@@ -9,8 +9,10 @@ import java.util.List;
 import java.util.TreeMap;
 
 /**
- * A special class for storing reference to a strategy
+ * A special class for storing reference to a interface and use this to change behaviours
  * The context delegates execution to an instance of concrete strategy through its interface instead of implementing behaviour itself
+ * As Strategy is implemented as an interface, we can swap ConcreteStrategys in and out without affecting our Context.
+ *
  */
 public class Context {
     CalculatorAlgorithm calculatorAlgorithm;
@@ -23,9 +25,9 @@ public class Context {
         return this.calculatorAlgorithm.createDocuments();
     }
 
-    public HashMap<Document, TreeMap<String,Integer>> getWordsFromDocList(List<Document> documents) {
-        return this.calculatorAlgorithm.getWordsFromDocList(documents);
-    }
+//    public HashMap<Document, TreeMap<String,Integer>> getWordsFromDocList(List<Document> documents) {
+//        return this.calculatorAlgorithm.getWordsFromDocList(documents);
+//    }
 
     public HashMap<Document, Double> calculateTFScore(List<Document> docList, String term) {
         return this.calculatorAlgorithm.calculateTFScore(docList,term);
